@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <title>Music Registration Validation</title>
+        <style type="text/css">
+            body{
+                background-color: coral;
+            }
+
+        </style>   
+
+    </head>
+
+    <body>
+        <div style="text-align: center;"></div>
+            <image src="Lovemusic.png" alt="Love Music" style="width: 1020px; height: 320px;">
+        </div>
+        
+        <style>
+            h3 {
+                color:blue; 
+                font-size: larger;
+                font-style: oblique;
+                font-family: Cambria;
+                font-weight: 300;
+                text-align: center;
+            }
+        </style>
+        <h3>Music Love Registration</h3>
+        <h3>Sign up for News and Updates</h3>
+
+        <form name="myform" onsubmit="return validateForm()">
+            
+        <div style="color:purple; font-family: Georgia; text-align: center;">   
+            First Name: <input type="text" placeholder="First Name" name="myname" id="fname" pattern="[a-zA-Z]{2,}" title="Please enter First name as minimum of 2 letters."><br><br>
+
+            Last Name: <input type="text" placeholder="Last Name" name="myname" id="lname" pattern="[a-zA-Z]{2,}" title="Please enter Last name as minimum of 2 letters."><br><br>
+        
+            Email Address: <input type="email" placeholder="funtimes@gmail.com.au" class="form-control" name="email" /><br><br>
+        
+            Mobile Phone: <input type="text" placeholder="04xx xxx xxx" class="form-control" name="phone" /><br><br>
+
+            Postcode: <input type="text" placeholder="5085" class="form-control" name="postal_code" /><br><br>
+
+            Date Of Birth: Enter your DOB: <input type="date" name="mydate" ><br><br>
+            <br> 
+            <br>
+        <input type="submit" value="Submit Registration"> 
+
+        </div>
+        </form>
+
+        <script>
+
+            function validateForm() {
+            // this isnt finished at all. idea would be to do all the checks then to return if its all valid or not. Will look into how. Cant seem to make DOB work.
+                let isvalidated = false;
+            let fname = FirstName();
+            let lname = Lastname();
+            let email = Email();
+            let mobile = Mobile();
+            let validDoB = dob();
+            console.log(fname);
+            alert("form is getting validated!");
+            return isvalidated;
+            }
+
+            function FirstName()
+               {
+                  let username=document.getElementById("fname").value;
+                 
+                  if (username== null || username.length <= 1)
+                         {
+                            alert( "Please enter First name minimum of 2 letters.");
+                            return false;
+                         }
+ 
+                }  
+
+    function Lastname()
+       {
+          let username=document.getElementById("lname").value;
+         
+          if (username== null || username == "")
+                 {
+                    alert( "Please enter Last Name minimum of 2 letters.");
+                    return false;
+                 }
+
+        }  
+
+    function Email()
+       {
+          let mymail=document.myform.email.value;
+          let attherate=mymail.indexOf("@");
+          let atthedot=mymail.lastIndexOf(".");
+            console.log(mymail);
+          if (attherate<1 || atthedot<attherate+3 || atthedot>=mymail.length)
+                 {
+                    alert( "Please enter your correct email address");
+                    return false;
+                 }
+        }  
+
+    function Mobile()
+       {
+         
+          let mobile=(document.myform.phone.value)
+
+          if (mobile.length==10)
+              {
+                 return true
+              }
+           else      
+                  {
+                    alert( "Enter Mobile number as 10 digits number");
+                    return false;
+                 }
+        }            
+
+    function dob()
+       {
+        //not sure why this one isnt working, spoke to a few people and couldnt get it to work
+        let realdate=new Date();
+                 let dob2=Date(document.completeform.dob.value)
+                 if (dob2>realdate)
+                        {
+                           alert( "Please enter your Date of Birth");
+                           return false;
+                 }
+        }            
+</script>
+     
+    </body>
+
+</html>
